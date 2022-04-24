@@ -22,9 +22,9 @@ public class EmployeeController {
         EmployeeRepository repo = new EmployeeRepository();
 
         ArrayList<Employee> list = repo.getAllEmployes();
-        for (int i = 0; i < list.size(); i++) {
+        /*for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
-        }
+        }*/
         model.addAttribute("employees", list);
         return "employees";
     }
