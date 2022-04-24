@@ -12,19 +12,21 @@ public class DatabaseConnectionManager {
     private static String password;
     private static Connection conn;
 
-    private DatabaseConnectionManager(){}
+    private DatabaseConnectionManager(){}           //Made private so you can't create an instance from constructor
 
     public static Connection getConnection(){
         if(conn != null){
             return conn;
         }
-        try{
-            url = "jdbc:mysql://localhost:3306/";
-            username = "root";
-            password = "hejsa";
+        try(InputStream propertiesFile = new FileInputStream("src/main/resources/application.properties")){ //Automaticly closes file when inside the try with resources
+            Properties props = new Properties();
+            props.load(propertiesFile);
+            url = props.getProperty("db.url");
+            username = props.getProperty("db.username");
+            password = props.getProperty("db.password");
             conn = DriverManager.getConnection(url, username, password);
         }
-        catch(SQLException e){
+        catch(SQLException | IOException e){
             e.printStackTrace();
         }
         return conn;

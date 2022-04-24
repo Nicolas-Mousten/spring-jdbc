@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Departments</title>
+    <link rel="stylesheet" th:href="@{style.css}"  type="text/css">
+</head>
+<body>
+<h1>Specific employees</h1>
+
+<a href="/departments">Departments</a>
+<a href="/employees">Employees</a>
+<a href="/singleEmployee">Search for Employee</a>
+
+<form method="Post" action="/employeeCreator">
+    <label for="id">Employee ID</label>
+    <input id="id" type="number" name="id">
+
+    <label for="name">Employee Name</label>
+    <input id="name" type="text" name="name">
+
+    <label for="job">Employee Job</label>
+    <input id="job" type="text" name="job">
+
+    <label for="manager">Employee Manager</label>
+    <input id="manager" type="text" name="manager">
+
+    <label for="hireDate">Employee Hire Date[Format:Year-month-day]</label>
+    <input id="hireDate" type="text" name="hireDate">
+
+    <label for="salary">Employee Salary</label>
+    <input id="salary" type="number" name="salary">
+
+    <label for="commision">Employee Commision</label>
+    <input id="commision" type="number" name="commision">
+
+    <label for="department">Employee Department</label>
+    <input id="department" type="text" name="department">
+
+    <input type="submit">
+</form>
+</body>
+</html>

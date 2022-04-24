@@ -6,17 +6,17 @@
     <link rel="stylesheet" th:href="@{style.css}"  type="text/css">
 </head>
 <body>
-    <h1>An overview of our departments</h1>
+    <h1>Specific employees</h1>
+
     <a href="/departments">Departments</a>
     <a href="/employees">Employees</a>
     <a href="/singleEmployee">Search for Employee</a>
-    <table>
-        <tr
-            th:each="department : ${departments}">
-            <td th:text="${department.getDeptno()}"></td>
-            <td th:text="${department.getDeptName()}"></td>
-            <td th:text="${department.getLocation()}"></td>
-        </tr>
-    </table>
+
+    <form method="Post" action="/SearchForEmployees">
+        <label for="id">Employee ID</label>
+        <input id="id" type="number" name="id">
+        <input type="submit">
+    </form>
+    <h1 th:text="${noId}"></h1>
 </body>
 </html>
